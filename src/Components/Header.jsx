@@ -1,18 +1,32 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+
+const SHeader = styled.header``;
+
+const NavList = styled.ul`
+  display: flex;
+`;
+
+const NavItem = styled.li``;
+
+const SLink = styled(Link)``;
 
 const Header = () => {
   return (
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/tv">Tv</a>
-      </li>
-      <li>
-        <a href="/search">Search</a>
-      </li>
-    </ul>
+    <SHeader>
+      <NavList>
+        <NavItem>
+          <SLink to="/">Home</SLink>
+        </NavItem>
+        <NavItem>
+          <SLink to="/tv">Tv</SLink>
+        </NavItem>
+        <NavItem>
+          <SLink to="/search">Search</SLink>
+        </NavItem>
+      </NavList>
+    </SHeader>
   );
 };
 
