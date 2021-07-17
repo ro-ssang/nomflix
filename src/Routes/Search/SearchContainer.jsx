@@ -11,11 +11,19 @@ class SearchContainer extends Component {
     loading: false,
   };
 
-  handleSumbit = () => {
+  handleSumbit = (event) => {
+    event.preventDefault();
     const { searchTerm } = this.state;
     if (searchTerm) {
       this.searchByTerm();
     }
+  };
+
+  updateTerm = (event) => {
+    const {
+      target: { value },
+    } = event;
+    this.setState({ searchTerm: value });
   };
 
   searchByTerm = async () => {
@@ -47,6 +55,7 @@ class SearchContainer extends Component {
         error={error}
         loading={loading}
         handleSumbit={this.handleSumbit}
+        updateTerm={this.updateTerm}
       />
     );
   }
