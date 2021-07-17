@@ -31,11 +31,9 @@ class DetailContainer extends Component {
     let result = null;
     try {
       if (isMovie) {
-        const response = await moviesApi.movieDetail(parsedId);
-        result = response.data;
+        ({ data: result } = await moviesApi.movieDetail(parsedId));
       } else {
-        const response = await tvApi.showDetail(parsedId);
-        result = response.data;
+        ({ data: result } = await tvApi.showDetail(parsedId));
       }
     } catch {
       this.setState({ error: "Can't find anything." });
@@ -46,8 +44,6 @@ class DetailContainer extends Component {
 
   render() {
     const { result, error, loading } = this.state;
-
-    console.log(this.state);
 
     return <DetailPresenter result={result} error={error} loading={loading} />;
   }
