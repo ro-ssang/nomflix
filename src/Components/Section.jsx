@@ -14,7 +14,11 @@ const Title = styled.h2`
   font-weight: 700;
 `;
 
-const Grid = styled.div``;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  gap: 18px;
+`;
 
 const Section = ({ children, title }) => {
   return (
