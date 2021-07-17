@@ -24,7 +24,7 @@ class HomeContainer extends Component {
       } = await moviesApi.popular();
       this.setState({ nowPlaying, upcoming, popular });
     } catch {
-      this.setState({ error: "Can't find information" });
+      this.setState({ error: "Can't find movie information" });
     } finally {
       this.setState({ loading: false });
     }
