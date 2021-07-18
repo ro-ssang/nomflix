@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import Section from 'Components/Section';
 import Loading from 'Components/Loading';
+import Message from 'Components/Message';
 
 const Container = styled.main`
   padding: 0 30px;
@@ -21,12 +22,27 @@ const TVPresenter = ({ airingToday, topRated, popular, error, loading }) => {
   return (
     <Container>
       {topRated && topRated.length > 0 && (
-        <Section title="Top Rated Shows">{topRated.map((show) => show.name)}</Section>
+        <Section title="Top Rated Shows">
+          {topRated.map((show) => (
+            <span>{show.name}</span>
+          ))}
+        </Section>
       )}
-      {popular && popular.length > 0 && <Section title="Popular Shows">{popular.map((show) => show.name)}</Section>}
+      {popular && popular.length > 0 && (
+        <Section title="Popular Shows">
+          {popular.map((show) => (
+            <span>{show.name}</span>
+          ))}
+        </Section>
+      )}
       {airingToday && airingToday.length > 0 && (
-        <Section title="Airing Today">{airingToday.map((show) => show.name)}</Section>
+        <Section title="Airing Today">
+          {airingToday.map((show) => (
+            <span>{show.name}</span>
+          ))}
+        </Section>
       )}
+      {error && <Message color="#c0392b" text={error} />}
     </Container>
   );
 };

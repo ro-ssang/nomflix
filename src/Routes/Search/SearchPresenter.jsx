@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
 import Loading from 'Components/Loading';
 import Section from 'Components/Section';
+import Message from 'Components/Message';
 
 const Container = styled.main`
   padding: 0 30px;
@@ -49,6 +51,7 @@ const SearchPresenter = ({ movieResults, tvResults, searchTerm, error, loading, 
           )}
         </>
       )}
+      {error && <Message color="#95a5a6" text={error} />}
     </Container>
   );
 };
