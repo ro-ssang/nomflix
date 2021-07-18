@@ -17,7 +17,8 @@ const Title = styled.h2`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, 250px);
-  gap: 18px;
+  column-gap: 18px;
+  row-gap: 24px;
 `;
 
 const Section = ({ children, title }) => {
