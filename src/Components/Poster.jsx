@@ -32,11 +32,11 @@ const Poster = ({ id, imgUrl, title, year, rating, isMovie = false }) => {
 };
 
 Poster.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
   imgUrl: PropTypes.string,
   title: PropTypes.string.isRequired,
   year: PropTypes.string,
-  rating: PropTypes.string,
+  rating: PropTypes.number,
   isMovie: PropTypes.bool,
 };
 
