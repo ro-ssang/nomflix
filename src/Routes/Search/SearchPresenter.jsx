@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -30,6 +31,9 @@ const Input = styled.input`
 const SearchPresenter = ({ movieResults, tvResults, searchTerm, error, loading, handleSumbit, updateTerm }) => {
   return (
     <Container>
+      <Helmet>
+        <title>Search | Nomflix</title>
+      </Helmet>
       <Form onSubmit={handleSumbit}>
         <Input type="text" value={searchTerm} placeholder="Search Movies or TV Shows..." onChange={updateTerm} />
       </Form>

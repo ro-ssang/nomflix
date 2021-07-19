@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -16,6 +17,9 @@ const TVPresenter = ({ airingToday, topRated, popular, error, loading }) => {
   if (loading) {
     return (
       <Container>
+        <Helmet>
+          <title>TV Shows | Nomflix</title>
+        </Helmet>
         <Loading />
       </Container>
     );

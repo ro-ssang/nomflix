@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import Loading from 'Components/Loading';
+import { Helmet } from 'react-helmet';
+import Message from 'Components/Message';
 
 const Container = styled.main`
   position: relative;
@@ -83,6 +85,9 @@ const DetailPresenter = ({ result, error, loading }) => {
     <Container>
       {result && (
         <>
+          <Helmet>
+            <title>{result.title ? result.title : result.name} | Nomflix</title>
+          </Helmet>
           <Backdrop
             bgUrl={
               result.backdrop_path
@@ -117,7 +122,15 @@ const DetailPresenter = ({ result, error, loading }) => {
           </Content>
         </>
       )}
-      {loading && <Loading />}
+      {loading && (
+        <>
+          <Helmet>
+            <title>Loading | Nomflix</title>
+          </Helmet>
+          <Loading />
+        </>
+      )}
+      {error && <Message color="#c0392b" text={error} />}
     </Container>
   );
 };

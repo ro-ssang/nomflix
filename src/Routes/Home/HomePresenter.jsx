@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -16,7 +17,10 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, error, loading }) => {
   if (loading) {
     return (
       <Container>
-        <Loading></Loading>
+        <Helmet>
+          <title>Movies | Nomflix</title>
+        </Helmet>
+        <Loading />
       </Container>
     );
   }
