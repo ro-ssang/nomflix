@@ -25,13 +25,57 @@ const Backdrop = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 30px;
+  display: flex;
+  padding: 90px;
   height: 100%;
 `;
 
 const Cover = styled.img`
-  height: 100%;
+  flex: 1;
   border-radius: 5px;
+`;
+
+const Info = styled.div`
+  flex: 4;
+  margin-left: 60px;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 12px;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 1px;
+`;
+
+const Description = styled.p`
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+`;
+
+const List = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+`;
+
+const ListItem = styled.li`
+  position: relative;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+  &:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -12px;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+  }
 `;
 
 const DetailPresenter = ({ result, error, loading }) => {
@@ -55,6 +99,21 @@ const DetailPresenter = ({ result, error, loading }) => {
               }
               alt={result.title ? result.title : result.name}
             />
+            <Info>
+              <Title>{result.title || result.name}</Title>
+              <List>
+                <ListItem>
+                  {result.release_date ? result.release_date.substring(0, 4) : result.first_air_date.substring(0, 4)}
+                </ListItem>
+                <ListItem>{result.runtime ? `${result.runtime} min` : `${result.episode_run_time[0]} min`}</ListItem>
+                <ListItem>
+                  {result.genres.map((genre, index) =>
+                    index !== result.genres.length - 1 ? <span>{genre.name} / </span> : <span>{genre.name}</span>
+                  )}
+                </ListItem>
+              </List>
+              <Description>{result.overview}</Description>
+            </Info>
           </Content>
         </>
       )}
