@@ -1,4 +1,4 @@
-import App from '@layouts/App/index';
+import App from '@layouts/App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
