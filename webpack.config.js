@@ -16,7 +16,7 @@ module.exports = {
   },
 
   entry: {
-    app: path.join(__dirname, 'src/index'),
+    app: ['core-js', 'regenerator-runtime/runtime', path.join(__dirname, 'src/index')],
   },
 
   module: {
