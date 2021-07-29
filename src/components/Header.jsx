@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 const HeaderWrapper = styled.header`
   position: sticky;
+  left: 0;
+  top: 0;
+  background-color: ${(props) => props.theme.$black};
+  box-shadow: 0 2px 14px ${(props) => props.theme.$lightBlack};
 `;
 const Navigation = styled.nav``;
 const NavList = styled.ul`
@@ -15,7 +19,7 @@ const NavItem = styled.li`
 const SLink = styled(Link)`
   display: inline-block;
   width: 100px;
-  border-bottom: 2px solid ${(props) => (props.$current ? props.theme.$red : props.theme.$black)};
+  border-bottom: 2px solid ${(props) => (props.$current ? props.theme.$red : 'inherit')};
   color: ${(props) => props.theme.$white};
   letter-spacing: 0.5px;
   line-height: 50px;
