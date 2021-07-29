@@ -8,6 +8,7 @@ const HeaderWrapper = styled.header`
   top: 0;
   background-color: ${(props) => props.theme.$black};
   box-shadow: 0 2px 14px ${(props) => props.theme.$lightBlack};
+  z-index: 10;
 `;
 const Navigation = styled.nav``;
 const NavList = styled.ul`
