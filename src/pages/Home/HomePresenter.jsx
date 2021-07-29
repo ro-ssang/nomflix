@@ -2,13 +2,60 @@ import MainWrapper from '@layouts/Main';
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Loader from '@components/Loader';
+import Poster from '@components/Poster';
 
-const HomeWrapper = styled.section``;
+const SectionWrapper = styled.section``;
+const SectionTitle = styled.h2``;
+const PosterList = styled.ul``;
+const PosterItem = styled.li``;
 
 const HomePresenter = ({ loading, nowPlaying, upcoming, popular, error }) => {
   return (
     <MainWrapper>
-      <HomeWrapper>Home</HomeWrapper>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <SectionWrapper>
+            <SectionTitle>Now Playing</SectionTitle>
+            <PosterList>
+              {nowPlaying &&
+                nowPlaying.length > 0 &&
+                nowPlaying.map((movie) => (
+                  <PosterItem key={movie.id}>
+                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                  </PosterItem>
+                ))}
+            </PosterList>
+          </SectionWrapper>
+          <SectionWrapper>
+            <SectionTitle>Upcoming</SectionTitle>
+            <PosterList>
+              {upcoming &&
+                upcoming.length > 0 &&
+                upcoming.map((movie) => (
+                  <PosterItem key={movie.id}>
+                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                  </PosterItem>
+                ))}
+            </PosterList>
+          </SectionWrapper>
+          <SectionWrapper>
+            <SectionTitle>Popular</SectionTitle>
+            <PosterList>
+              {popular &&
+                popular.length > 0 &&
+                popular.map((movie) => (
+                  <PosterItem key={movie.id}>
+                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                  </PosterItem>
+                ))}
+            </PosterList>
+          </SectionWrapper>
+        </>
+      )}
+      {error && error.message}
     </MainWrapper>
   );
 };
