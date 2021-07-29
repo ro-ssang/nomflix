@@ -5,9 +5,25 @@ import PropTypes from 'prop-types';
 import Loader from '@components/Loader';
 import Poster from '@components/Poster';
 
-const SectionWrapper = styled.section``;
-const SectionTitle = styled.h2``;
-const PosterList = styled.ul``;
+const SectionWrapper = styled.section`
+  padding: 0 30px;
+  width: 100%;
+  max-width: 1440px;
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+`;
+const SectionTitle = styled.h2`
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: 700;
+`;
+const PosterList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-auto-rows: 300px;
+  gap: 20px;
+`;
 const PosterItem = styled.li``;
 
 const HomePresenter = ({ loading, nowPlaying, upcoming, popular, error }) => {
