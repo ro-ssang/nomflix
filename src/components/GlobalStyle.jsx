@@ -3,6 +3,7 @@ import reset from 'styled-reset';
 
 export const theme = {
   $black: '#141414',
+  $lightBlack: '#2b2b2b',
   $white: '#fff',
   $red: '#e50914',
 };
