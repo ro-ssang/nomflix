@@ -6,9 +6,9 @@ const MainWrapper = styled.main``;
 
 export default ({ children }) => {
   return (
-    <MainWrapper>
+    <>
       <Header />
-      {children}
-    </MainWrapper>
+      <MainWrapper>{children}</MainWrapper>
+    </>
   );
 };
