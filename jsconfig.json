@@ -4,6 +4,7 @@
     "target": "es6",
     "baseUrl": ".",
     "paths": {
+      "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@pages/*": ["./src/pages/*"]
