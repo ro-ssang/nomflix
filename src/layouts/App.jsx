@@ -1,4 +1,5 @@
 import GlobalStyle, { theme } from '@components/GlobalStyle';
+import DetailContainer from '@pages/Detail';
 import HomeContainer from '@pages/Home';
 import SearchContainer from '@pages/Search';
 import TvContainer from '@pages/Tv';
@@ -14,6 +15,8 @@ export default () => {
         <Route path="/" exact component={HomeContainer} />
         <Route path="/tv" component={TvContainer} />
         <Route path="/search" component={SearchContainer} />
+        <Route path="/movies/:id" component={DetailContainer} />
+        <Route path="/shows/:id" component={DetailContainer} />
       </Router>
     </ThemeProvider>
   );
