@@ -22,7 +22,7 @@ export const movieApi = {
 export const tvApi = {
   airingToday: () => instance.get('tv/airing_today'),
   popular: () => instance.get('tv/popular'),
-  topRated: () => instance.get(''),
+  topRated: () => instance.get('tv/top_rated'),
   search: (term) =>
     instance.get('search/tv', {
       params: {
