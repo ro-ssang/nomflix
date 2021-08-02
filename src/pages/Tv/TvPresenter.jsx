@@ -36,31 +36,37 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
           <SectionWrapper>
             <SectionTitle>Airing Today</SectionTitle>
             <PosterList>
-              {airingToday.map((show) => (
-                <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
-                </PosterItem>
-              ))}
+              {airingToday &&
+                airingToday.length > 0 &&
+                airingToday.map((show) => (
+                  <PosterItem key={show.id}>
+                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                  </PosterItem>
+                ))}
             </PosterList>
           </SectionWrapper>
           <SectionWrapper>
             <SectionTitle>Popular</SectionTitle>
             <PosterList>
-              {popular.map((show) => (
-                <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
-                </PosterItem>
-              ))}
+              {popular &&
+                popular.length > 0 &&
+                popular.map((show) => (
+                  <PosterItem key={show.id}>
+                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                  </PosterItem>
+                ))}
             </PosterList>
           </SectionWrapper>
           <SectionWrapper>
             <SectionTitle>Top Rated</SectionTitle>
             <PosterList>
-              {topRated.map((show) => (
-                <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
-                </PosterItem>
-              ))}
+              {topRated &&
+                topRated.length > 0 &&
+                topRated.map((show) => (
+                  <PosterItem key={show.id}>
+                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                  </PosterItem>
+                ))}
             </PosterList>
           </SectionWrapper>
         </>
