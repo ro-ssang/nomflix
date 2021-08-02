@@ -144,7 +144,33 @@ const DetailPresenter = ({ loading, movie, show, error }) => {
       {show && (
         <>
           <Backdrop imgUrl={`https://image.tmdb.org/t/p/original${show.backdrop_path}`} />
-          <DetailWrapper>Tv show detail page</DetailWrapper>
+          <DetailWrapper>
+            <DetailPoster src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} alt={show.name} />
+            <MetaData>
+              <h2>{show.name}</h2>
+              <p>{show.overview}</p>
+              <ul className="info">
+                <li>
+                  <h3>Runtime</h3>
+                  <span>{show.episode_run_time[0]} min</span>
+                </li>
+                <li>
+                  <h3>Release at</h3>
+                  <span>{show.first_air_date.split('-').join('. ')}</span>
+                </li>
+                <li>
+                  <h3>Rating</h3>
+                  <span>{show.vote_average}</span>
+                </li>
+              </ul>
+              <ul className="genres">
+                <h3>Genres</h3>
+                {show.genres.map((genre) => (
+                  <li key={genre.id}>{genre.name}</li>
+                ))}
+              </ul>
+            </MetaData>
+          </DetailWrapper>
         </>
       )}
       {error && error.message}
@@ -182,7 +208,7 @@ DetailPresenter.propTypes = {
         name: PropTypes.string,
       }),
     ),
-    episode_runtime: PropTypes.arrayOf(PropTypes.number),
+    episode_run_time: PropTypes.arrayOf(PropTypes.number),
     first_air_date: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
   }),
