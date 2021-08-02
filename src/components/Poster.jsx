@@ -53,7 +53,10 @@ const Poster = ({ title, imgUrl, rating, searchUrl }) => {
   return (
     <PosterWrapper>
       <Link to={searchUrl}>
-        <Backdrop src={`https://image.tmdb.org/t/p/w300${imgUrl}`} alt={title} />
+        <Backdrop
+          src={imgUrl ? `https://image.tmdb.org/t/p/w300${imgUrl}` : require('@assets/noPosterSmall.png').default}
+          alt={title}
+        />
         <Info>
           <Title>{title}</Title>
           <Rating>⭐{rating}/10</Rating>
