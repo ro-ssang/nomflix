@@ -9,12 +9,9 @@ export default () => {
   const [shows, setShows] = useState([]);
   const [error, setError] = useState(null);
 
-  const onChange = useCallback(
-    (e) => {
-      setTerm(e.target.value);
-    },
-    [term],
-  );
+  const onChange = useCallback((e) => {
+    setTerm(e.target.value);
+  }, []);
 
   const onSubmit = useCallback(
     (e) => {
