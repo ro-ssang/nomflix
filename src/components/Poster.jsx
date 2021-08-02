@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Backdrop = styled.img`
   width: 100%;
@@ -48,14 +49,16 @@ const PosterWrapper = styled.div`
   }
 `;
 
-const Poster = ({ title, imgUrl, rating }) => {
+const Poster = ({ title, imgUrl, rating, searchUrl }) => {
   return (
     <PosterWrapper>
-      <Backdrop src={`https://image.tmdb.org/t/p/w300${imgUrl}`} alt={title} />
-      <Info>
-        <Title>{title}</Title>
-        <Rating>⭐{rating}/10</Rating>
-      </Info>
+      <Link to={searchUrl}>
+        <Backdrop src={`https://image.tmdb.org/t/p/w300${imgUrl}`} alt={title} />
+        <Info>
+          <Title>{title}</Title>
+          <Rating>⭐{rating}/10</Rating>
+        </Info>
+      </Link>
     </PosterWrapper>
   );
 };
@@ -66,4 +69,5 @@ Poster.propTypes = {
   title: PropTypes.string.isRequired,
   imgUrl: PropTypes.string,
   rating: PropTypes.number.isRequired,
+  searchUrl: PropTypes.string.isRequired,
 };
