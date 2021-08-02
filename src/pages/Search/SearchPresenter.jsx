@@ -47,7 +47,12 @@ const SearchPresenter = ({ term, onChange, onSubmit, loading, movies, shows, err
                 movies.length > 0 &&
                 movies.map((movie) => (
                   <PosterItem key={movie.id}>
-                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                    <Poster
+                      title={movie.title}
+                      imgUrl={movie.poster_path}
+                      rating={movie.vote_average}
+                      searchUrl={`/movies/${movie.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
@@ -59,7 +64,12 @@ const SearchPresenter = ({ term, onChange, onSubmit, loading, movies, shows, err
                 shows.length > 0 &&
                 shows.map((show) => (
                   <PosterItem key={show.id}>
-                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                    <Poster
+                      title={show.name}
+                      imgUrl={show.poster_path}
+                      rating={show.vote_average}
+                      searchUrl={`/shows/${show.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>

@@ -40,7 +40,12 @@ const HomePresenter = ({ loading, nowPlaying, upcoming, popular, error }) => {
                 nowPlaying.length > 0 &&
                 nowPlaying.map((movie) => (
                   <PosterItem key={movie.id}>
-                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                    <Poster
+                      title={movie.title}
+                      imgUrl={movie.poster_path}
+                      rating={movie.vote_average}
+                      searchUrl={`/movies/${movie.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
@@ -52,7 +57,12 @@ const HomePresenter = ({ loading, nowPlaying, upcoming, popular, error }) => {
                 upcoming.length > 0 &&
                 upcoming.map((movie) => (
                   <PosterItem key={movie.id}>
-                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                    <Poster
+                      title={movie.title}
+                      imgUrl={movie.poster_path}
+                      rating={movie.vote_average}
+                      searchUrl={`/movies/${movie.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
@@ -64,7 +74,12 @@ const HomePresenter = ({ loading, nowPlaying, upcoming, popular, error }) => {
                 popular.length > 0 &&
                 popular.map((movie) => (
                   <PosterItem key={movie.id}>
-                    <Poster title={movie.title} imgUrl={movie.poster_path} rating={movie.vote_average} />
+                    <Poster
+                      title={movie.title}
+                      imgUrl={movie.poster_path}
+                      rating={movie.vote_average}
+                      searchUrl={`/movies/${movie.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>

@@ -40,7 +40,12 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
                 airingToday.length > 0 &&
                 airingToday.map((show) => (
                   <PosterItem key={show.id}>
-                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                    <Poster
+                      title={show.name}
+                      imgUrl={show.poster_path}
+                      rating={show.vote_average}
+                      searchUrl={`/shows/${show.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
@@ -52,7 +57,12 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
                 popular.length > 0 &&
                 popular.map((show) => (
                   <PosterItem key={show.id}>
-                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                    <Poster
+                      title={show.name}
+                      imgUrl={show.poster_path}
+                      rating={show.vote_average}
+                      searchUrl={`/shows/${show.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
@@ -64,7 +74,12 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
                 topRated.length > 0 &&
                 topRated.map((show) => (
                   <PosterItem key={show.id}>
-                    <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
+                    <Poster
+                      title={show.name}
+                      imgUrl={show.poster_path}
+                      rating={show.vote_average}
+                      searchUrl={`/shows/${show.id}`}
+                    />
                   </PosterItem>
                 ))}
             </PosterList>
