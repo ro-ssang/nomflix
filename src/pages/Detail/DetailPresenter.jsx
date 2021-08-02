@@ -57,6 +57,15 @@ const MetaData = styled.div`
       }
       span {
         font-weight: 600;
+        &.imdb {
+          position: absolute;
+          left: 0;
+          top: -1px;
+          width: 40px;
+          img {
+            width: 100%;
+          }
+        }
       }
       &:not(:last-child) {
         margin-right: 24px;
@@ -130,6 +139,15 @@ const DetailPresenter = ({ loading, movie, show, error }) => {
                   <h3>Rating</h3>
                   <span>{movie.vote_average}</span>
                 </li>
+                {movie.imdb_id && (
+                  <li>
+                    <a href={`https://www.imdb.com/title/${movie.imdb_id}`} target="_blank">
+                      <span className="imdb">
+                        <img src={require('@assets/imdb.png').default} />
+                      </span>
+                    </a>
+                  </li>
+                )}
               </ul>
               <ul className="genres">
                 <h3>Genres</h3>
@@ -197,6 +215,7 @@ DetailPresenter.propTypes = {
     runtime: PropTypes.number.isRequired,
     release_date: PropTypes.string.isRequired,
     vote_average: PropTypes.number.isRequired,
+    imdb_id: PropTypes.string,
   }),
   show: PropTypes.shape({
     id: PropTypes.number.isRequired,
