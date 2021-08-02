@@ -9,6 +9,7 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@api': path.resolve(__dirname, 'src/api'),
+      '@assets': path.resolve(__dirname, 'src/assets'),
       '@components': path.resolve(__dirname, 'src/components'),
       '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@pages': path.resolve(__dirname, 'src/pages'),
@@ -29,6 +30,12 @@ module.exports = {
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
           },
+        },
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: {
+          loader: 'file-loader',
         },
       },
     ],
