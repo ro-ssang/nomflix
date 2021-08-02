@@ -2,13 +2,70 @@ import MainWrapper from '@layouts/Main';
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import Loader from '@components/Loader';
+import Poster from '@components/Poster';
 
-const TvWrapper = styled.section``;
+const SectionWrapper = styled.section`
+  padding: 0 30px;
+  width: 100%;
+  max-width: 1440px;
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+`;
+const SectionTitle = styled.h2`
+  margin-bottom: 16px;
+  font-size: 28px;
+  font-weight: 700;
+`;
+const PosterList = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+  grid-auto-rows: 300px;
+  gap: 20px;
+`;
+const PosterItem = styled.li``;
 
 const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
   return (
     <MainWrapper>
-      <TvWrapper>TV</TvWrapper>
+      {loading ? (
+        <Loader />
+      ) : (
+        <>
+          <SectionWrapper>
+            <SectionTitle>Airing Today</SectionTitle>
+            <PosterList>
+              {airingToday.map((show) => (
+                <PosterItem key={show.id}>
+                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                </PosterItem>
+              ))}
+            </PosterList>
+          </SectionWrapper>
+          <SectionWrapper>
+            <SectionTitle>Popular</SectionTitle>
+            <PosterList>
+              {popular.map((show) => (
+                <PosterItem key={show.id}>
+                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                </PosterItem>
+              ))}
+            </PosterList>
+          </SectionWrapper>
+          <SectionWrapper>
+            <SectionTitle>Top Rated</SectionTitle>
+            <PosterList>
+              {topRated.map((show) => (
+                <PosterItem key={show.id}>
+                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                </PosterItem>
+              ))}
+            </PosterList>
+          </SectionWrapper>
+        </>
+      )}
+      {error && error.message}
     </MainWrapper>
   );
 };
