@@ -38,7 +38,7 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
             <PosterList>
               {airingToday.map((show) => (
                 <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
                 </PosterItem>
               ))}
             </PosterList>
@@ -48,7 +48,7 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
             <PosterList>
               {popular.map((show) => (
                 <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
                 </PosterItem>
               ))}
             </PosterList>
@@ -58,7 +58,7 @@ const TvPresenter = ({ loading, airingToday, popular, topRated, error }) => {
             <PosterList>
               {topRated.map((show) => (
                 <PosterItem key={show.id}>
-                  <Poster title={show.name} imgUrl={show.backdrop_path} rating={show.vote_average} />
+                  <Poster title={show.name} imgUrl={show.poster_path} rating={show.vote_average} />
                 </PosterItem>
               ))}
             </PosterList>
@@ -78,7 +78,7 @@ TvPresenter.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      backdrop_path: PropTypes.string,
+      poster_path: PropTypes.string,
       vote_average: PropTypes.number.isRequired,
     }),
   ),
@@ -86,7 +86,7 @@ TvPresenter.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      backdrop_path: PropTypes.string,
+      poster_path: PropTypes.string,
       vote_average: PropTypes.number.isRequired,
     }),
   ),
@@ -94,7 +94,7 @@ TvPresenter.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
-      backdrop_path: PropTypes.string,
+      poster_path: PropTypes.string,
       vote_average: PropTypes.number.isRequired,
     }),
   ),
