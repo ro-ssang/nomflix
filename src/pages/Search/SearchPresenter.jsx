@@ -3,12 +3,17 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const SearchWrapper = styled.section``;
+const SearchForm = styled.form``;
+const SeacrhInput = styled.input``;
+const SearchButton = styled.button``;
 
 const SearchPresenter = ({ term, onChange, onSubmit, loading, movies, shows, error }) => {
   return (
     <MainWrapper>
-      <SearchWrapper>Search</SearchWrapper>
+      <SearchForm onSubmit={onSubmit}>
+        <SeacrhInput type="text" placeholder="Searching for..." value={term} onChange={onChange} />
+        <SearchButton type="submit">search</SearchButton>
+      </SearchForm>
     </MainWrapper>
   );
 };
