@@ -17,6 +17,7 @@ export const movieApi = {
         query: term,
       },
     }),
+  detail: (id) => instance.get(`movie/${id}`),
 };
 
 export const tvApi = {
@@ -29,4 +30,5 @@ export const tvApi = {
         query: term,
       },
     }),
+  detail: (id) => instance.get(`tv/${id}`),
 };
