@@ -25,6 +25,8 @@ const DetailWrapper = styled.div`
   height: calc(100vh - 130px);
 `;
 const DetailPoster = styled.img`
+  width: 100%;
+  max-width: 600px;
   border-radius: 5px;
   box-shadow: 2px 3px 30px 20px ${(props) => props.theme.$black};
 `;
@@ -163,7 +165,14 @@ const DetailPresenter = ({ loading, movie, show, error }) => {
         <>
           <Backdrop imgUrl={`https://image.tmdb.org/t/p/original${show.backdrop_path}`} />
           <DetailWrapper>
-            <DetailPoster src={`https://image.tmdb.org/t/p/w500${show.poster_path}`} alt={show.name} />
+            <DetailPoster
+              src={
+                show.poster_path
+                  ? `https://image.tmdb.org/t/p/w500${show.poster_path}`
+                  : require('@assets/noPosterLarge.jpg').default
+              }
+              alt={show.name}
+            />
             <MetaData>
               <h2>{show.name}</h2>
               <p>{show.overview}</p>
