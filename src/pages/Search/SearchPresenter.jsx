@@ -5,9 +5,27 @@ import PropTypes from 'prop-types';
 import Loader from '@components/Loader';
 import Poster from '@components/Poster';
 
-const SearchForm = styled.form``;
-const SeacrhInput = styled.input``;
-const SearchButton = styled.button``;
+const SearchForm = styled.form`
+  display: flex;
+  padding: 0 30px;
+  width: 100%;
+  max-width: 1440px;
+`;
+const SeacrhInput = styled.input`
+  flex: 3;
+  padding: 14px 10px;
+  margin-bottom: 40px;
+  background-color: inherit;
+  border: none;
+  border-bottom: 1px solid ${(props) => props.theme.$white};
+  color: ${(props) => props.theme.$white};
+  font-size: 20px;
+  outline: none;
+  &::placeholder {
+    font-size: 20px;
+    color: inherit;
+  }
+`;
 const SectionWrapper = styled.section`
   padding: 0 30px;
   width: 100%;
@@ -34,14 +52,13 @@ const SearchPresenter = ({ term, onChange, onSubmit, loading, movies, shows, err
     <MainWrapper>
       <SearchForm onSubmit={onSubmit}>
         <SeacrhInput type="text" placeholder="Searching for..." value={term} onChange={onChange} />
-        <SearchButton type="submit">search</SearchButton>
       </SearchForm>
       {loading ? (
         <Loader />
       ) : (
         <>
           <SectionWrapper>
-            <SectionTitle>Movies</SectionTitle>
+            {movies && movies.length > 0 && <SectionTitle>Movies</SectionTitle>}
             <PosterList>
               {movies &&
                 movies.length > 0 &&
@@ -58,7 +75,7 @@ const SearchPresenter = ({ term, onChange, onSubmit, loading, movies, shows, err
             </PosterList>
           </SectionWrapper>
           <SectionWrapper>
-            <SectionTitle>TV Shows</SectionTitle>
+            {shows && shows.length > 0 && <SectionTitle>TV Shows</SectionTitle>}
             <PosterList>
               {shows &&
                 shows.length > 0 &&
