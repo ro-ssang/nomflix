@@ -3,6 +3,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Loader from '@components/Loader';
+import YTVideo from '@components/YTVideo';
 
 const Backdrop = styled.div`
   position: absolute;
@@ -141,6 +142,7 @@ const MetaData = styled.div`
           }
         }
         .tab-content {
+          overflow-y: scroll;
           position: absolute;
           left: 0;
           top: 50px;
@@ -166,7 +168,7 @@ const MetaData = styled.div`
   }
 `;
 
-const DetailPresenter = ({ loading, movie, show, error, currentTab, onClickTab }) => {
+const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onClickTab }) => {
   if (loading) {
     return <Loader />;
   }
@@ -216,7 +218,9 @@ const DetailPresenter = ({ loading, movie, show, error, currentTab, onClickTab }
                     <button id="tab1" className="tab" onClick={onClickTab}>
                       Videos
                     </button>
-                    <div className="tab-content">content1</div>
+                    <div className="tab-content">
+                      <YTVideo videos={videos} />
+                    </div>
                   </li>
                   <li className={currentTab === 'tab2' ? 'active' : ''}>
                     <button id="tab2" className="tab" onClick={onClickTab}>
