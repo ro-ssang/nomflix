@@ -6,6 +6,7 @@
   "repository": "https://github.com/ro-ssang/nomflix.git",
   "author": "rossa <fashionfish@naver.com>",
   "license": "MIT",
+  "homepage": "https://dazzling-williams-ae78bc.netlify.app/",
   "scripts": {
     "start": "webpack serve",
     "build": "webpack --env production"
