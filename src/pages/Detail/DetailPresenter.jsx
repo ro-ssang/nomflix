@@ -33,6 +33,7 @@ const DetailPoster = styled.img`
   box-shadow: 2px 3px 30px 20px ${(props) => props.theme.$black};
 `;
 const MetaData = styled.div`
+  flex: 1;
   & {
     display: flex;
     flex-direction: column;
@@ -117,12 +118,13 @@ const MetaData = styled.div`
     }
   }
   #tab-menu {
+    width: 100%;
     height: 100%;
-    ul {
+    & > ul {
       position: relative;
       display: flex;
       height: 100%;
-      li {
+      & > li {
         min-width: 110px;
         .tab {
           display: inline-block;
@@ -190,7 +192,7 @@ const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onCl
                   <span>{movie.runtime} min</span>
                 </li>
                 <li>
-                  <h3>Release at</h3>
+                  <h3>Release on</h3>
                   <span>{movie.release_date.split('-').join('. ')}</span>
                 </li>
                 <li>
@@ -228,7 +230,7 @@ const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onCl
                       Production
                     </button>
                     <div className="tab-content">
-                      <Companies companies={movie.production_companies} />
+                      <Companies companies={movie.production_companies} countries={movie.production_countries} />
                     </div>
                   </li>
                 </ul>
