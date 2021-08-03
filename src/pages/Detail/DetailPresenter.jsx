@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Loader from '@components/Loader';
 import YTVideo from '@components/YTVideo';
 import Companies from '@components/Companies';
+import Seasons from '@components/Seasons';
 
 const Backdrop = styled.div`
   position: absolute;
@@ -260,7 +261,7 @@ const DetailPresenter = ({ loading, movie, show, videos, showVideos, error, curr
                   <span>{show.episode_run_time[0]} min</span>
                 </li>
                 <li>
-                  <h3>Release at</h3>
+                  <h3>First air on</h3>
                   <span>{show.first_air_date.split('-').join('. ')}</span>
                 </li>
                 <li>
@@ -288,13 +289,17 @@ const DetailPresenter = ({ loading, movie, show, videos, showVideos, error, curr
                     <button id="tab2" className="tab" onClick={onClickTab}>
                       Production
                     </button>
-                    <div className="tab-content">content2</div>
+                    <div className="tab-content">
+                      <Companies companies={show.production_companies} countries={show.production_countries} />
+                    </div>
                   </li>
                   <li className={currentTab === 'tab3' ? 'active' : ''}>
                     <button id="tab3" className="tab" onClick={onClickTab}>
                       Seasons
                     </button>
-                    <div className="tab-content">content3</div>
+                    <div className="tab-content">
+                      <Seasons seasons={show.seasons} />
+                    </div>
                   </li>
                 </ul>
               </div>
