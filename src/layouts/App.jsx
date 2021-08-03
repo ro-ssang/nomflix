@@ -4,7 +4,7 @@ import HomeContainer from '@pages/Home';
 import SearchContainer from '@pages/Search';
 import TvContainer from '@pages/Tv';
 import React from 'react';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 export default () => {
