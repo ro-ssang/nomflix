@@ -48,13 +48,13 @@ module.exports = {
 
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist'),
-    publicPath: '/dist/',
+    path: path.join(__dirname, 'build'),
+    publicPath: '/build',
   },
 
   devServer: {
     contentBase: path.join(__dirname, 'public'),
-    publicPath: '/dist/',
+    publicPath: '/build',
     port: 3000,
     hot: true,
     historyApiFallback: true,

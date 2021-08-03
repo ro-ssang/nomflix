@@ -9,7 +9,7 @@
   "homepage": "https://epic-dijkstra-4aa961.netlify.app",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --env production"
+    "build": "webpack"
   },
   "dependencies": {
     "axios": "^0.21.1",
