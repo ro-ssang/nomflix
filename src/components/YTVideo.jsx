@@ -12,18 +12,20 @@ const Iframe = styled.iframe``;
 
 export default ({ videos }) => (
   <YTVideoWrapper>
-    {videos.map((video) => (
-      <Video key={video.id}>
-        <Iframe
-          id={video.id}
-          type="text/html"
-          width="100%"
-          height="100%"
-          src={`https://www.youtube.com/embed/${video.key}`}
-          frameBorder="0"
-          fs="1"
-        />
-      </Video>
-    ))}
+    {videos &&
+      videos.length > 0 &&
+      videos.map((video) => (
+        <Video key={video.id}>
+          <Iframe
+            id={video.id}
+            type="text/html"
+            width="100%"
+            height="100%"
+            src={`https://www.youtube.com/embed/${video.key}`}
+            frameBorder="0"
+            fs="1"
+          />
+        </Video>
+      ))}
   </YTVideoWrapper>
 );
