@@ -262,7 +262,7 @@ const DetailPresenter = ({ loading, movie, show, videos, showVideos, error, curr
                 </li>
                 <li>
                   <h3>First air on</h3>
-                  <span>{show.first_air_date.split('-').join('. ')}</span>
+                  <span>{show.first_air_date?.split('-').join('. ')}</span>
                 </li>
                 <li>
                   <h3>Rating</h3>
