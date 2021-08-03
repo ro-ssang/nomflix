@@ -13,6 +13,7 @@ const DetailContainer = ({
   const [movie, setMovie] = useState(null);
   const [show, setShow] = useState(null);
   const [videos, setVideos] = useState(null);
+  const [showVideos, setShowVideos] = useState(null);
   const [error, setError] = useState(null);
   const [currentTab, setCurrentTab] = useState('tab1');
 
@@ -42,7 +43,11 @@ const DetailContainer = ({
       const fetchShowData = async () => {
         try {
           const { data } = await tvApi.detail(id);
+          const {
+            data: { results: showVideos },
+          } = await tvApi.videos(id);
           setShow(data);
+          setShowVideos(showVideos);
         } catch (err) {
           setError(err);
         } finally {
@@ -59,6 +64,7 @@ const DetailContainer = ({
       movie={movie}
       show={show}
       videos={videos}
+      showVideos={showVideos}
       error={error}
       currentTab={currentTab}
       onClickTab={onClickTab}

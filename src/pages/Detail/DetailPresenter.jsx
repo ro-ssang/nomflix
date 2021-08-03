@@ -171,7 +171,7 @@ const MetaData = styled.div`
   }
 `;
 
-const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onClickTab }) => {
+const DetailPresenter = ({ loading, movie, show, videos, showVideos, error, currentTab, onClickTab }) => {
   if (loading) {
     return <Loader />;
   }
@@ -274,6 +274,30 @@ const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onCl
                   <li key={genre.id}>{genre.name}</li>
                 ))}
               </ul>
+              <div id="tab-menu">
+                <ul>
+                  <li className={currentTab === 'tab1' ? 'active' : ''}>
+                    <button id="tab1" className="tab" onClick={onClickTab}>
+                      Videos
+                    </button>
+                    <div className="tab-content">
+                      <YTVideo videos={showVideos} />
+                    </div>
+                  </li>
+                  <li className={currentTab === 'tab2' ? 'active' : ''}>
+                    <button id="tab2" className="tab" onClick={onClickTab}>
+                      Production
+                    </button>
+                    <div className="tab-content">content2</div>
+                  </li>
+                  <li className={currentTab === 'tab3' ? 'active' : ''}>
+                    <button id="tab3" className="tab" onClick={onClickTab}>
+                      Seasons
+                    </button>
+                    <div className="tab-content">content3</div>
+                  </li>
+                </ul>
+              </div>
             </MetaData>
           </DetailWrapper>
         </>

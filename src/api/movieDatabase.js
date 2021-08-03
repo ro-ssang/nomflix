@@ -32,4 +32,5 @@ export const tvApi = {
       },
     }),
   detail: (id) => instance.get(`tv/${id}`),
+  videos: (id) => instance.get(`tv/${id}/videos`),
 };
