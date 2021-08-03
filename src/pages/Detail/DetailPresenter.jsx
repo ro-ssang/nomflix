@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Loader from '@components/Loader';
 import YTVideo from '@components/YTVideo';
+import Companies from '@components/Companies';
 
 const Backdrop = styled.div`
   position: absolute;
@@ -226,7 +227,9 @@ const DetailPresenter = ({ loading, movie, show, videos, error, currentTab, onCl
                     <button id="tab2" className="tab" onClick={onClickTab}>
                       Production
                     </button>
-                    <div className="tab-content">content2</div>
+                    <div className="tab-content">
+                      <Companies companies={movie.production_companies} />
+                    </div>
                   </li>
                 </ul>
               </div>
