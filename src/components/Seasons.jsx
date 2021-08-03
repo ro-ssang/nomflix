@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SeasonsWrapper = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(100px, auto));
   grid-auto-rows: minmax(150px, auto);
   grid-gap: 20px;
   margin-bottom: 20px;

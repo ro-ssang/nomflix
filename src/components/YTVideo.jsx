@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const YTVideoWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+  grid-template-columns: repeat(auto-fill, minmax(250px, auto));
   grid-auto-rows: 200px;
   gap: 20px;
 `;
