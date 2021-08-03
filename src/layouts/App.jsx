@@ -4,7 +4,7 @@ import HomeContainer from '@pages/Home';
 import SearchContainer from '@pages/Search';
 import TvContainer from '@pages/Tv';
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 export default () => {
@@ -17,6 +17,7 @@ export default () => {
         <Route path="/search" component={SearchContainer} />
         <Route path="/movies/:id" component={DetailContainer} />
         <Route path="/shows/:id" component={DetailContainer} />
+        <Redirect path="*" to="/" />
       </Router>
     </ThemeProvider>
   );
