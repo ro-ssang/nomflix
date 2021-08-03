@@ -18,6 +18,7 @@ export const movieApi = {
       },
     }),
   detail: (id) => instance.get(`movie/${id}`),
+  videos: (id) => instance.get(`movie/${id}/videos`),
 };
 
 export const tvApi = {

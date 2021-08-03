@@ -23,6 +23,11 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
-    color: ${(props) => props.theme.$white}
+    color: ${(props) => props.theme.$white};
+  }
+  button {
+    color: ${(props) => props.theme.$white};
+    font-size: 16px;
+    font-family: inherit;
   }
 `;

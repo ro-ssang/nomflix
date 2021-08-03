@@ -1,5 +1,5 @@
 import { movieApi, tvApi } from '@api/movieDatabase';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import DetailPresenter from './DetailPresenter';
 
@@ -12,14 +12,24 @@ const DetailContainer = ({
   const [loading, setLoading] = useState(true);
   const [movie, setMovie] = useState(null);
   const [show, setShow] = useState(null);
+  const [videos, setVideos] = useState(null);
   const [error, setError] = useState(null);
+  const [currentTab, setCurrentTab] = useState('tab1');
+
+  const onClickTab = useCallback((e) => {
+    setCurrentTab(e.target.id);
+  }, []);
 
   useEffect(() => {
     if (pathname.startsWith('/movies')) {
       const fetchMovieData = async () => {
         try {
           const { data } = await movieApi.detail(id);
+          const {
+            data: { results: videos },
+          } = await movieApi.videos(id);
           setMovie(data);
+          setVideos(videos);
         } catch (err) {
           setError(err);
         } finally {
@@ -43,7 +53,17 @@ const DetailContainer = ({
     }
   }, []);
 
-  return <DetailPresenter loading={loading} movie={movie} show={show} error={error} />;
+  return (
+    <DetailPresenter
+      loading={loading}
+      movie={movie}
+      show={show}
+      videos={videos}
+      error={error}
+      currentTab={currentTab}
+      onClickTab={onClickTab}
+    />
+  );
 };
 
 export default DetailContainer;

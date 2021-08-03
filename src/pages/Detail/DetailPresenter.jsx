@@ -32,6 +32,8 @@ const DetailPoster = styled.img`
 `;
 const MetaData = styled.div`
   & {
+    display: flex;
+    flex-direction: column;
     padding: 20px 30px;
   }
   & > h2 {
@@ -88,6 +90,7 @@ const MetaData = styled.div`
   .genres {
     display: flex;
     align-items: center;
+    margin-bottom: 16px;
     h3 {
       margin-right: 8px;
       font-size: 14px;
@@ -111,9 +114,59 @@ const MetaData = styled.div`
       }
     }
   }
+  #tab-menu {
+    height: 100%;
+    ul {
+      position: relative;
+      display: flex;
+      height: 100%;
+      li {
+        min-width: 110px;
+        .tab {
+          display: inline-block;
+          width: 100%;
+          background-color: rgba(255, 255, 255, 0.2);
+          border: none;
+          border-bottom: 3px solid rgba(255, 255, 255, 0.01);
+          border-top-left-radius: 5px;
+          border-top-right-radius: 5px;
+
+          font-weight: 500;
+          line-height: 45px;
+          text-align: center;
+          cursor: pointer;
+          &:hover,
+          &:focus {
+            background-color: rgba(255, 255, 255, 0.3);
+          }
+        }
+        .tab-content {
+          position: absolute;
+          left: 0;
+          top: 50px;
+          display: none;
+          padding: 30px;
+          width: 100%;
+          height: calc(100% - 50px);
+          border-radius: 5px;
+          border-top-left-radius: 0;
+        }
+        &.active {
+          .tab {
+            background-color: rgba(255, 255, 255, 0.4);
+            border-bottom: 3px solid ${(props) => props.theme.$red};
+          }
+          .tab-content {
+            display: block;
+            background-color: rgba(255, 255, 255, 0.4);
+          }
+        }
+      }
+    }
+  }
 `;
 
-const DetailPresenter = ({ loading, movie, show, error }) => {
+const DetailPresenter = ({ loading, movie, show, error, currentTab, onClickTab }) => {
   if (loading) {
     return <Loader />;
   }
@@ -157,6 +210,22 @@ const DetailPresenter = ({ loading, movie, show, error }) => {
                   <li key={genre.id}>{genre.name}</li>
                 ))}
               </ul>
+              <div id="tab-menu">
+                <ul>
+                  <li className={currentTab === 'tab1' ? 'active' : ''}>
+                    <button id="tab1" className="tab" onClick={onClickTab}>
+                      Videos
+                    </button>
+                    <div className="tab-content">content1</div>
+                  </li>
+                  <li className={currentTab === 'tab2' ? 'active' : ''}>
+                    <button id="tab2" className="tab" onClick={onClickTab}>
+                      Production
+                    </button>
+                    <div className="tab-content">content2</div>
+                  </li>
+                </ul>
+              </div>
             </MetaData>
           </DetailWrapper>
         </>
@@ -243,4 +312,6 @@ DetailPresenter.propTypes = {
   error: PropTypes.shape({
     message: PropTypes.string.isRequired,
   }),
+  currentTab: PropTypes.string.isRequired,
+  onClickTab: PropTypes.func.isRequired,
 };
